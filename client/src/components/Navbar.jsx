@@ -8,6 +8,7 @@ import Container from '@mui/material/Container';
 import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
+import {Link} from 'react-router-dom';
 
 
 const Navbar = () => {
@@ -18,9 +19,7 @@ const Navbar = () => {
         <Toolbar disableGutters>
           <Typography
             variant="h6"
-            noWrap
-            component="a"
-            href="/"
+            component={Link} to=''
             sx={{
               mr: 2,
               display: { xs: 'none', md: 'flex' },
@@ -46,6 +45,12 @@ const Navbar = () => {
             Score Board
             </Button>
           </Box>
+            <Button
+                //onClick
+                sx={{ my: 2, color: 'white', display: 'block' }}
+            >
+            Login
+            </Button>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip >
               <IconButton sx={{ p: 0 }}>
