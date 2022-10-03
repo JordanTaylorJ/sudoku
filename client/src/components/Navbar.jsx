@@ -34,22 +34,25 @@ const Navbar = () => {
           </Typography>
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             <Button
-                //onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
             >New Game
             </Button>  
             <Button
-                //onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
             >
             Score Board
             </Button>
           </Box>
             <Button
-                //onClick
+                component={Link} to='/login'
                 sx={{ my: 2, color: 'white', display: 'block' }}
             >
             Login
+            </Button>
+            <Button
+                sx={{ my: 2, color: 'white', display: 'block' }}
+            >
+            Signup
             </Button>
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip >
