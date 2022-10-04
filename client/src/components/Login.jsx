@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import Box from '@mui/material/Box';
 import TextField from '@mui/material/TextField';
+import Signup from './Signup';
+import {Link} from 'react-router-dom';
 
 const Login = () => {
     
@@ -27,7 +29,7 @@ const Login = () => {
             </Box>
             <Box>
                 <button>Login</button>
-                <button>Signup</button>
+                <button component={Link} to={<Signup/>}>Signup</button>
             </Box>
         </div>
     )
