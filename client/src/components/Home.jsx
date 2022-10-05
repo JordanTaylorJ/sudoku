@@ -1,10 +1,9 @@
 import React from 'react';
-import Login from './Login';
 
 const Home = ({user}) => {
     
     if (!user){
-        return <Login />
+        return <h1>Login to Play!</h1>
     } else {
         return <h1>Welcome {user.username}!</h1>
     }
