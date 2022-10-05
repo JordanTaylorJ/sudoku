@@ -22,7 +22,7 @@ const Login = ({setUser}) => {
             }), 
         })
         .then((r) => r.json())
-        .then((r) => console.log("USER logged in", r))
+        .then(r => setUser(r))
     }
 
     console.log("username from LOGIN", username);
