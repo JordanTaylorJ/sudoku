@@ -19,11 +19,9 @@ const Signup = ({setUser}) => {
             }), 
         })
         .then((r) => r.json())
-        .then((r) => console.log("USER sign up", r))
+        .then((r) => setUser(r))
     }
 
-    console.log("username from SIGNUP", username);
-    console.log("password from SIGNUP", password);
 
     return(
         <div>

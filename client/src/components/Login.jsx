@@ -25,9 +25,6 @@ const Login = ({setUser}) => {
         .then(r => setUser(r))
     }
 
-    console.log("username from LOGIN", username);
-    console.log("password from LOGIN", password);
-
     return(
         <div>
             <form
