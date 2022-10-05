@@ -5,8 +5,10 @@ const Signup = ({setUser}) => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
-    const [errors, setErrors] = useState(null);
+    const [errors, setErrors] = useState([]);
 
+    console.log(errors);
+    
     function handleSubmit(e) {
         e.preventDefault()
         fetch("/signup", {
@@ -23,7 +25,7 @@ const Signup = ({setUser}) => {
             if (r.ok){
                 r.json().then((r) => setUser(r))
             } else {
-                r.json().then((r) => setErrors(r))
+                r.json().then((r) => setErrors(r.errors))
             }
         })
     }
@@ -51,8 +53,16 @@ const Signup = ({setUser}) => {
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 </label>
+                {errors.length > 0 && (
+                    <ul>
+                        {errors.map((error) => (
+                            <li key={error}> {error}</li>
+                        ))}
+                    </ul>
+                )}
                 <input type='submit' value="submit"/>
             </form>
+
         </div>
     )
 

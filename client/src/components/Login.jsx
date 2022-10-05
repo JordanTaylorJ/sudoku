@@ -8,7 +8,10 @@ const Login = ({setUser}) => {
     
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [errors, setErrors] = useState([]);
 
+    console.log('login errors', errors);
+    
     function handleSubmit(e) {
         e.preventDefault()
         fetch("/login", {
@@ -21,8 +24,13 @@ const Login = ({setUser}) => {
                 password 
             }), 
         })
-        .then((r) => r.json())
-        .then(r => setUser(r))
+        .then((r) => {
+            if (r.ok){
+                r.json().then((r) => setUser(r))
+            } else {
+                r.json().then((r) => setErrors(r.error))
+            }
+        })
     }
 
     return(
@@ -49,14 +57,9 @@ const Login = ({setUser}) => {
                     onChange={(e) => setPassword(e.target.value)}
                 />
                 </label>
-                <input type='submit' value="submit"/>
+                <input type='submit' value="submit"/>    
+                <li> {errors}</li>
             </form>
-            {/*<button>Login</button>
-            <Box>
-                
-                <button component={Link} to={<Signup/>}>Signup</button>
-            </Box>
-            */}
         </div>
     )
 
