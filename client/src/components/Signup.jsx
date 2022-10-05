@@ -5,6 +5,7 @@ const Signup = ({setUser}) => {
 
     const [username, setUsername] = useState("");
     const [password, setPassword] = useState("");
+    const [errors, setErrors] = useState(null);
 
     function handleSubmit(e) {
         e.preventDefault()
@@ -18,8 +19,13 @@ const Signup = ({setUser}) => {
                 password 
             }), 
         })
-        .then((r) => r.json())
-        .then((r) => setUser(r))
+        .then((r) => {
+            if (r.ok){
+                r.json().then((r) => setUser(r))
+            } else {
+                r.json().then((r) => setErrors(r))
+            }
+        })
     }
 
 
