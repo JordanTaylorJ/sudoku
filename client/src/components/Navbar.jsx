@@ -11,7 +11,13 @@ import Tooltip from '@mui/material/Tooltip';
 import {Link} from 'react-router-dom';
 
 
-const Navbar = () => {
+const Navbar = ({user, setUser}) => {
+
+  function handleLogout() {
+    fetch("/logout", {
+      method: "DELETE",
+    }).then(() => setUser(""))
+  }
 
   return (
     <AppBar position="static">
@@ -43,12 +49,21 @@ const Navbar = () => {
             Score Board
             </Button>
           </Box>
+          { user ? (
             <Button
-                component={Link} to='/login'
+                onClick={handleLogout}
                 sx={{ my: 2, color: 'white', display: 'block' }}
-            >
-            Login
+            > Logout
             </Button>
+
+            ) : (
+              <Button
+              component={Link} to='/login'
+              sx={{ my: 2, color: 'white', display: 'block' }}
+          > Login
+          </Button>
+            )}
+
             <Button
                 component={Link} to='/signup'
                 sx={{ my: 2, color: 'white', display: 'block' }}
