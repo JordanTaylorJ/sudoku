@@ -2,7 +2,7 @@ import React, {useState} from 'react';
 
 const Game = () => {
     
-    const [digitSelect, setDigitSelect] = useState('3');
+    const [digitSelect, setDigitSelect] = useState(null);
     const [errors, setErrors] = useState(0);
 
     const startBoard = [
@@ -51,8 +51,9 @@ const Game = () => {
         grid.push([])
         for (let c=0; c<9; c++){
             grid[r].push(
-                <div 
-                    className='tile' 
+                <div
+                    
+                    className={(r===2 || r===5) ? 'horizontal-line': 'tile' && (c===2 || c===5) ? 'vertical-line': 'tile'}
                     key={`${r} ${c}`}
                     id={`${r}${c}`}
                     onClick={(e) => selectTile(e)}

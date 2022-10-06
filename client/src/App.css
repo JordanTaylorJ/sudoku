@@ -34,7 +34,7 @@
 .tile {
   width:48px;
   height:48px;
-  border: 1px solid blue;
+  border: 1px solid lightgrey;
   
   font-size: 20px;
   font-weight: bold;
@@ -57,5 +57,27 @@
 }
 
 .horizontal-line {
+  width:48px;
+  height:48px;
+  border: 1px solid lightgrey;
   border-bottom: 1px solid black;
+  
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.vertical-line {
+  width:48px;
+  height:48px;
+  border: 1px solid lightgrey;
+  border-right: 1px solid black;
+  
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
