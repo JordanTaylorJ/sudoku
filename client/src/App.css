@@ -2,7 +2,6 @@
   text-align: center;
 }
 
-
 .App-header {
   background-color: #282c34;
   min-height: 100vh;
@@ -20,7 +19,7 @@
   height: 450px;
   margin: 0 auto;
   display: flex;
-  background: blueviolet
+  flex-wrap: wrap;
 }
 
 .digitStyle {
@@ -28,12 +27,14 @@
   height: 50px;
   margin: 0 auto;
   display: flex;
+  
 }
 
 .tile {
-  width:48px;
-  height:48px;
-  border: 1px solid orangered;
+  width:44px;
+  height:44px;
+  border: 1px solid lightgrey;
+  background-color: lightpink;
 
   font-size: 20px;
   font-weight: bold;

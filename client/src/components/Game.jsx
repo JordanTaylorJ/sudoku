@@ -27,17 +27,15 @@ const Game = () => {
     ];
     const digits = [1,2,3,4,5,6,7,8,9];
 
-
-    function setGame(){
-        for (let r=0; r<9; r++){
-            for (let c=0; c<9; c++){
-                console.log(c);
-                return(
-            <div className='tile'> Hey</div>
-                )
-            }
+    let grid = []
+    for (let r=0; r<9; r++){
+        grid.push([])
+        for (let c=0; c<9; c++){
+            console.log(c);
+            grid[r].push(<div className='tile' key={`${c} ${r}`}></div>)
         }
     }
+    
 
     return(
         <>
@@ -45,7 +43,7 @@ const Game = () => {
             <hr width="500px"/>
             <br/>
             <div className='boardStyle'>
-            {setGame()}
+                {grid}
             </div>
             <div className='digitStyle'>
                 {digits.map((i) => 
