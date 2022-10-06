@@ -20,6 +20,7 @@
   margin: 0 auto;
   display: flex;
   flex-wrap: wrap;
+  
 }
 
 .digitStyle {
@@ -31,10 +32,21 @@
 }
 
 .tile {
-  width:44px;
-  height:44px;
-  border: 1px solid lightgrey;
-  background-color: lightpink;
+  width:48px;
+  height:48px;
+  border: 1px solid blue;
+  
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.digitTile {
+  width:48px;
+  height:48px;
+  border: 1px solid black;
 
   font-size: 20px;
   font-weight: bold;
@@ -44,15 +56,6 @@
   align-items: center;
 }
 
-.digitTile {
-  width:48px;
-  height:48px;
-  border: 1px solid green;
-
-  font-size: 20px;
-  font-weight: bold;
-  margin: 2px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.horizontal-line {
+  border-bottom: 1px solid black;
 }
