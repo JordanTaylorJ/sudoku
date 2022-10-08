@@ -27,10 +27,16 @@ const Game = () => {
         "675832941",
         "812945763"
     ];
+
     const digits = [1,2,3,4,5,6,7,8,9];
 
     function selectNum(e) {
         let selected = e.target.id
+        console.log("selected number", e.target.class)
+        if(digitSelect != null){
+            digitSelect.className = 'digitTile'
+        }
+        e.target.className = 'selected-digit'
         setDigitSelect(selected)
     }
 
@@ -52,7 +58,6 @@ const Game = () => {
         for (let c=0; c<9; c++){
             grid[r].push(
                 <div
-                    
                     className={(r===2 || r===5) ? 'horizontal-line': 'tile' && (c===2 || c===5) ? 'vertical-line': 'tile'}
                     key={`${r} ${c}`}
                     id={`${r}${c}`}

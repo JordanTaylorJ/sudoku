@@ -6,13 +6,14 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Game from './components/Game';
+import UserProfile from './components/UserProfile';
 
 
 function App() {
 
   const [user, setUser] = useState('');
 
-  useEffect(() => {
+  useEffect(() => { 
     fetch('/auth')
     .then(res => {
       if (res.ok){
@@ -30,6 +31,7 @@ function App() {
           <Route path='/login' element={<Login setUser={setUser} />} />
           <Route path='/signup' element={<Signup setUser={setUser} />} />
           <Route path='/newgame' element={<Game/>} />
+          <Route path='userprofile' element={<UserProfile/>} />
         </Routes>
       </Router>
     </div>

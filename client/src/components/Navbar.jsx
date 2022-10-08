@@ -74,7 +74,8 @@ const Navbar = ({user, setUser}) => {
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip >
               <IconButton sx={{ p: 0 }}>
-                <Avatar alt="Sammy T" src="" />
+                
+                <Avatar component={Link} to='/userprofile' alt="Sammy T" src="" />
               </IconButton>
             </Tooltip>
           </Box>
