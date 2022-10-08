@@ -1,9 +1,14 @@
 import React from "react";
 
-const UserProfile = () => {
+const UserProfile = ({user, setUser}) => {
 
     return(
-        <p>Profile</p>
+        <>
+            <h1>Profile</h1>
+            <ul>{user.username}</ul>
+            <ul></ul>
+        </>
+
     )
 }
 

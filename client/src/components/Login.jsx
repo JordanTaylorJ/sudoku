@@ -25,6 +25,7 @@ const Login = ({setUser}) => {
         .then((r) => {
             if (r.ok){
                 r.json().then((r) => setUser(r))
+                setErrors([])
             } else {
                 r.json().then((r) => setErrors(r.error))
             }
@@ -56,7 +57,7 @@ const Login = ({setUser}) => {
                 />
                 </label>
                 <input type='submit' value="submit"/>    
-                <li> {errors}</li>
+                <ul> {errors}</ul>
             </form>
         </div>
     )

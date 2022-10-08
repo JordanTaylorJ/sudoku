@@ -31,7 +31,7 @@ function App() {
           <Route path='/login' element={<Login setUser={setUser} />} />
           <Route path='/signup' element={<Signup setUser={setUser} />} />
           <Route path='/newgame' element={<Game/>} />
-          <Route path='userprofile' element={<UserProfile/>} />
+          <Route path='userprofile' element={<UserProfile user={user} setUser={setUser} />} />
         </Routes>
       </Router>
     </div>

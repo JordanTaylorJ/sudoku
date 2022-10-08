@@ -75,7 +75,7 @@ const Navbar = ({user, setUser}) => {
             <Tooltip >
               <IconButton sx={{ p: 0 }}>
                 
-                <Avatar component={Link} to='/userprofile' alt="Sammy T" src="" />
+                <Avatar component={Link} to='/userprofile' alt={user.username} />
               </IconButton>
             </Tooltip>
           </Box>
