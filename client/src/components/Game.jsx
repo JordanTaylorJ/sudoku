@@ -30,15 +30,12 @@ const Game = () => {
 
     const digits = [1,2,3,4,5,6,7,8,9];
 
-    function selectNum(e) {
+    function selectDigit(e) {
         let selected = e.target.id
-        console.log("selected number", e.target.class)
-        if(digitSelect != null){
-            digitSelect.className = 'digitTile'
-        }
-        e.target.className = 'selected-digit'
         setDigitSelect(selected)
     }
+
+    console.log('digit selected', digitSelect)
 
     function selectTile(e){
         let coordinates = e.target.id
@@ -84,8 +81,8 @@ const Game = () => {
                         key={num} 
                         value={num}
                         id={num}
-                        className="digitTile" 
-                        onClick={(e) => selectNum(e)}
+                        className={(num == digitSelect) ? 'selected-digit': 'digitTile'}
+                        onClick={(e) => selectDigit(e)}
                     > 
                         {num} 
                     </div>
