@@ -7,6 +7,7 @@ import Login from './components/Login';
 import Signup from './components/Signup';
 import Game from './components/Game';
 import UserProfile from './components/UserProfile';
+import ScoreBoard from './components/ScoreBoard';
 
 
 function App() {
@@ -32,7 +33,7 @@ function App() {
           <Route path='/signup' element={<Signup setUser={setUser} />} />
           <Route path='/newgame' element={<Game/>} />
           <Route path='/userprofile' element={<UserProfile user={user} setUser={setUser} />} />
-          <Route path='./' element={<ScoreBoard/>} />
+          <Route path='/scoreboard' element={<ScoreBoard/>} />
         </Routes>
       </Router>
     </div>

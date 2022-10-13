@@ -3,7 +3,6 @@ import Login from './Login';
 
 const UserProfile = ({user, setUser}) => {
 
-    console.log('user', user);
 
     if (!user) {
         return(
