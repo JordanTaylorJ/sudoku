@@ -7,14 +7,14 @@ const Home = ({user}) => {
         return(
             <>
                 <h1>Login to Play!</h1> 
-                <img src={picture} alt="sudoku" class='photo'/>
+                <img src={picture} alt="sudoku" className='photo'/>
             </>
         )
     } else {
         return(
             <>
                 <h1>Welcome {user.username}!</h1>
-                <img src={picture} alt="sudoku" class='photo'/>
+                <img src={picture} alt="sudoku" className='photo'/>
             </>
         )
     }
