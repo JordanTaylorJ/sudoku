@@ -6,8 +6,6 @@ import {Link} from 'react-router-dom';
 
 const UserProfile = ({user, setUser}) => {
 
-    const [editUser, setEditUser] = useState(false);
-
     if (!user) {
         return(
             <Login/>

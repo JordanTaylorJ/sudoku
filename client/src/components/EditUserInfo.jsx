@@ -1,6 +1,13 @@
-import React from "react";
+import React, {useState} from "react";
 
 const EditUserInfo = ({user}) => {
+
+    const [updateUser, setUpdateUser] = useState({
+        password: "",
+        new_password: "",
+        confirmation_password: ""
+    })
+
     return (
         <form>
             <label> Old Password: 
