@@ -1,8 +1,18 @@
 import React from "react";
 
-const EditUserInfo = () => {
+const EditUserInfo = ({user}) => {
     return (
-        <p>an edit form here</p>
+        <form>
+            <label> Old Password: 
+                <input type='text' name='username' placeholder="enter new username..." />
+            </label>
+            <label> New Password: 
+                <input type='text' name='username' placeholder="enter new username..." />
+            </label>
+            <label> Password Confirmation:  
+                <input type='text' name='username' placeholder="enter new username..." />
+            </label>
+        </form>
     )
 }
 export default EditUserInfo; 

@@ -1,21 +1,12 @@
 import React, {useState} from "react";
 import Login from './Login';
-import ReadUserInfo from "./ReadUserInfo";
-import EditUserInfo from "./EditUserInfo";
+import { Avatar } from "@mui/material";
+import Button from '@mui/material/Button';
+import {Link} from 'react-router-dom';
 
 const UserProfile = ({user, setUser}) => {
 
     const [editUser, setEditUser] = useState(false);
-
-    function handleEditUser() {
-        if (editUser === true){
-            setEditUser(false)
-        } else {
-            setEditUser(true)
-        }
-    }
-
-    console.log('are we editing?', editUser)
 
     if (!user) {
         return(
@@ -26,13 +17,11 @@ const UserProfile = ({user, setUser}) => {
             <>
                 <br/>
                 <h1>Profile</h1>
-                <ul>username: {user.username}</ul>
-                <ul></ul>
-                {editUser 
-                    ? <EditUserInfo user={user}/>
-                    : <ReadUserInfo user={user}/>
-                }
-                <button onClick={handleEditUser}>Edit User Profile</button>
+                <ul>{user.username}</ul>
+                <Avatar align='center' sx={{ bgcolor: 'blue' }} >H</Avatar>
+                <Button 
+                    component={Link} to='/edituser' 
+                >Change Password</Button>
 
             </>
 
