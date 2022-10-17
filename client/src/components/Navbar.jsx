@@ -50,6 +50,12 @@ const Navbar = ({user, setUser}) => {
             >
             Score Board
             </Button>
+            <Button
+                sx={{ my: 2, color: 'white', display: 'block' }}
+                component={Link} to='/generategame'
+            >
+            Generate Games!
+            </Button>
           </Box>
           { user ? (
             <Button

@@ -9,6 +9,7 @@ import Game from './components/Game';
 import UserProfile from './components/UserProfile';
 import ScoreBoard from './components/ScoreBoard';
 import EditUserInfo from './components/EditUserInfo';
+import GameGenerator from './components/GameGenerator';
 
 
 function App() {
@@ -36,6 +37,7 @@ function App() {
           <Route path='/userprofile' element={<UserProfile user={user} setUser={setUser} />} />
           <Route path='/scoreboard' element={<ScoreBoard/>} />
           <Route path='/edituser' element={<EditUserInfo/>} />
+          <Route path='/generategames' element={<GameGenerator/>} />
         </Routes>
       </Router>
     </div>
