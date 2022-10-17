@@ -19,11 +19,11 @@ const GameGenerator = () => {
     //Check if location is safe to place num by row, column, and box
 
     const rowSafe = (puzzleArr, emptyCell, num) => {
-        return puzzleArr[ emptyCell.rowIndex].indexOf(num) == -1
+        return puzzleArr[ emptyCell.rowIndex].indexOf(num) === -1
     }
 
     const columnSafe = (puzzleArr, emptyCell, num) => {
-        return !puzzleArr.some(row => row[ emptyCell.colIndex ] == num )
+        return !puzzleArr.some(row => row[ emptyCell.colIndex ] === num )
     }
 
     const boxSafe = (puzzleArr, emptyCell, num) => {
@@ -32,9 +32,10 @@ const GameGenerator = () => {
         let colBoxStart = emptyCell.colIndex - (emptyCell.colIndex % 3)
         //if the number already exists in the box, not safe to place
         let safe = true
-        for (boxRow of [0,1,2]){
-            for (boxCol of [0,1,2]){
-                if (puzzleArr[rowBoxStart + boxRow][colBoxStart + boxCol] == num){
+        
+        for (let boxRow of [0,1,2]){
+            for (let boxCol of [0,1,2]){
+                if (puzzleArr[rowBoxStart + boxRow][colBoxStart + boxCol] === num){
                     safe = false
                 }
             }
@@ -66,8 +67,8 @@ const GameGenerator = () => {
         const emptyCell = NextEmptyCell(startingBoard)
         if (!emptyCell) return startingBoard 
 
-        for (num of numArray){
-            counter++ 
+        for (let num of numArray){
+            
             if (safeToPlace(startingBoard, emptyCell, num)){
                 startingBoard[emptyCell.rowIndex][emptyCell.colIndex] = num
                 if (fillPuzzle(startingBoard)) return startingBoard 
@@ -78,9 +79,13 @@ const GameGenerator = () => {
     }
 
     console.log(startingBoard)
+    console.log(fillPuzzle(startingBoard))
 
     return(
-        <p>a game maybe   or something</p>
+        <>
+            <p>a game maybe   or something</p>
+            <h2>{fillPuzzle(startingBoard)}</h2>
+        </> 
     )
 }
 
