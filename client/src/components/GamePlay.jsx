@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
 
-const Game = () => {
+const GamePlay = () => {
     
     const [digitSelect, setDigitSelect] = useState(null);
     const [errors, setErrors] = useState(0);
@@ -166,4 +166,4 @@ const Game = () => {
     }
 
 
-export default Game;
+export default GamePlay;

@@ -5,7 +5,7 @@ import Navbar from './components/Navbar';
 import Home from './components/Home';
 import Login from './components/Login';
 import Signup from './components/Signup';
-import Game from './components/Game';
+import GamePlay from './components/GamePlay';
 import UserProfile from './components/UserProfile';
 import ScoreBoard from './components/ScoreBoard';
 import EditUserInfo from './components/EditUserInfo';
@@ -33,7 +33,7 @@ function App() {
           <Route path='/' element={<Home user={user} />}/>
           <Route path='/login' element={<Login setUser={setUser} />} />
           <Route path='/signup' element={<Signup setUser={setUser} />} />
-          <Route path='/newgame' element={<Game/>} />
+          <Route path='/newgame' element={<GamePlay/>} />
           <Route path='/userprofile' element={<UserProfile user={user} setUser={setUser} />} />
           <Route path='/scoreboard' element={<ScoreBoard/>} />
           <Route path='/edituser' element={<EditUserInfo/>} />
