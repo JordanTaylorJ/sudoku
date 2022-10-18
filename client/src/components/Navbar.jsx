@@ -54,7 +54,7 @@ const Navbar = ({user, setUser}) => {
                 sx={{ my: 2, color: 'white', display: 'block' }}
                 component={Link} to='/generategames'
             >
-            Generate Games!
+            Generate Puzzles
             </Button>
           </Box>
           { user ? (

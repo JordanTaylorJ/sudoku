@@ -9,7 +9,7 @@ import GamePlay from './components/GamePlay';
 import UserProfile from './components/UserProfile';
 import ScoreBoard from './components/ScoreBoard';
 import EditUserInfo from './components/EditUserInfo';
-import GameGenerator from './components/GameGenerator';
+import PuzzleGenerator from './components/PuzzleGenerator';
 
 
 function App() {
@@ -37,7 +37,7 @@ function App() {
           <Route path='/userprofile' element={<UserProfile user={user} setUser={setUser} />} />
           <Route path='/scoreboard' element={<ScoreBoard/>} />
           <Route path='/edituser' element={<EditUserInfo/>} />
-          <Route path='/generategames' element={<GameGenerator/>} />
+          <Route path='/generategames' element={<PuzzleGenerator/>} />
         </Routes>
       </Router>
     </div>
