@@ -15,7 +15,8 @@ import PuzzleGenerator from './components/PuzzleGenerator';
 function App() {
 
   const [user, setUser] = useState('');
-
+  //const [puzzles, setPuzzles] = useState();
+  
   useEffect(() => { 
     fetch('/auth')
     .then(res => {
@@ -24,6 +25,15 @@ function App() {
       }
     })
   }, []);
+
+  /*
+  useEffect(() => {
+    fetch('/games')
+    .then(r => r.json())
+    //.then(r => console.log("this is the start", r))
+    .then(r => setPuzzles(r))
+  }, [])
+  */
   
   return (
     <div className="App">
@@ -33,7 +43,7 @@ function App() {
           <Route path='/' element={<Home user={user} />}/>
           <Route path='/login' element={<Login setUser={setUser} />} />
           <Route path='/signup' element={<Signup setUser={setUser} />} />
-          <Route path='/newgame' element={<GamePlay/>} />
+          <Route path='/newgame' element={<GamePlay />} />
           <Route path='/userprofile' element={<UserProfile user={user} setUser={setUser} />} />
           <Route path='/scoreboard' element={<ScoreBoard/>} />
           <Route path='/edituser' element={<EditUserInfo/>} />

@@ -1,48 +1,40 @@
-import React, {useState} from 'react';
+import React, {useState } from 'react';
 
-const GamePlay = () => {
-    
+const GamePlay = ({}) => {
+
     const [digitSelect, setDigitSelect] = useState(null);
     const [errors, setErrors] = useState(0);
     const [activeBoard, setActiveBoard] = useState([]);
+    //const [startBoard, setStartBoard] = useState(null);
+    //const [solutionBoard, setSolutionBoard] = useState(null);
 
-    /*
+    
+    
+    
     const startBoard = [
-        "--74916-5",
-        "2---6-3-9",
-        "-----7-1-",
-        "-586----4",
-        "--3----9-",
-        "--62--187",
-        "9-4-7---2",
-        "67-83----",
-        "81--45---"
-    ];
-*/
-
-    const startBoard = [
-        "-87491625",
-        "241568379",
-        "569327418",
-        "758619234",
-        "123784596",
-        "49625-187",
-        "9-4176852",
-        "67583294-",
-        "81294576-"
-    ];
+        [0,8,7,4,9,1,6,2,5],
+        [2,4,1,5,6,8,0,7,9],
+        [5,6,9,3,2,7,4,1,8],
+        [7,5,8,6,1,9,2,3,4],
+        [1,2,3,7,8,4,5,9,6],
+        [4,9,6,2,5,3,1,8,7],
+        [9,3,4,0,7,6,8,5,2],
+        [6,7,5,8,3,2,9,4,1],
+        [8,0,2,9,4,5,7,6,0]
+    ]
 
     const solutionBoard = [
-        "387491625",
-        "241568379",
-        "569327418",
-        "758619234",
-        "123784596",
-        "496253187",
-        "934176852",
-        "675832941",
-        "812945763"
-    ];
+        [3,8,7,4,9,1,6,2,5],
+        [2,4,1,5,6,8,3,7,9],
+        [5,6,9,3,2,7,4,1,8],
+        [7,5,8,6,1,9,2,3,4],
+        [1,2,3,7,8,4,5,9,6],
+        [4,9,6,2,5,3,1,8,7],
+        [9,3,4,1,7,6,8,5,2],
+        [6,7,5,8,3,2,9,4,1],
+        [8,1,2,9,4,5,7,6,3]
+    ]
+    
 
     const digits = ['1','2','3','4','5','6','7','8','9'];
 
@@ -54,17 +46,41 @@ const GamePlay = () => {
         let coordinates = e.target.id
         let row = coordinates[0]
         let col = coordinates[1]
-        if(digitSelect === solutionBoard[row][col]){
-            e.target.innerText = digitSelect
+        if(digitSelect == solutionBoard[row][col]){
+            e.target.innerHTML = digitSelect
             e.target.value = digitSelect
-            setActiveBoard(grid)
         } else {
             const newErr = errors
             setErrors(newErr + 1)
         }
     }
-    
 
+    /*
+    let grid = []
+    if (puzzles !== null){
+        //console.log("start", startBoard.start)
+    for (let r=0; r<9; r++){
+        grid.push([])
+        for (let c=0; c<9; c++){
+            grid.push([])
+            grid[r].push(
+                <div
+                    className={(r===2 || r===5) ? 'horizontal-line': 'tile' && (c===2 || c===5) ? 'vertical-line': 'tile'}
+                    key={`${r} ${c}`}
+                    id={`${r}${c}`}
+                    value={puzzles[2].start[r][c]}
+                    onClick={(e) => selectTile(e)}
+                >
+                {puzzles[2].start[r][c] !== 0 ? puzzles[2].start[r][c] : null}
+                </div>
+            )
+        }
+    }
+    }
+   */ 
+    
+    
+    //the OG   this works ! 
     let grid = []
     for (let r=0; r<9; r++){
         grid.push([])
@@ -73,7 +89,7 @@ const GamePlay = () => {
             if (activeBoard.length > 0){
                 cat = activeBoard[r][c]
             } else {
-                if (startBoard[r][c] !== "-"){
+                if (startBoard[r][c] !== 0){
                     cat = startBoard[r][c]
                 }
             }
@@ -82,63 +98,33 @@ const GamePlay = () => {
                     className={(r===2 || r===5) ? 'horizontal-line': 'tile' && (c===2 || c===5) ? 'vertical-line': 'tile'}
                     key={`${r} ${c}`}
                     id={`${r}${c}`}
-                    //value = {startBoard[r][c] !== "-" ? startBoard[r][c] : activeBoard[r][c]}
                     value={cat}
                     onClick={(e) => selectTile(e)}
                 > 
-                {startBoard[r][c] !== "-" ? startBoard[r][c] : null}
+                {startBoard[r][c] !== 0 ? startBoard[r][c] : null}
                 </div>
             )
         }
     }
+    
 
-    console.log('grid', grid)
+
     /*
-    console.log(activeBoard)
-    
-    let completed = true
-    if (activeBoard !== []) {
-        
-        for (let r=0; r<9; r++){
-            for (let c=0; c<9; c++){
-                console.log("yo", grid[r][c].props.value) 
-                if (activeBoard[r][c].props.value === 0){
-                    completed = false 
-                }
-                
-            }
-        }
-    } else {
-        completed = false
-    }
-
-    console.log(completed)
-    
-    
-
-    let completed = true
-
     if (activeBoard.length > 0){
+    
         for (let r=0; r<9; r++){
             for (let c=0; c<9; c++){
-                console.log("yo", activeBoard[r][c].props.value) 
-                if (activeBoard[r][c].props.value === 0){
-                    completed = false 
-                }
+                //if (activeBoard[r][c].value === solutionBoard[r][c])
+                console.log('these coordinates', activeBoard[r][c])
+                //return(
+                    //<p>done</p>
+                  
+                //)
             }
         }
-    } else {
-        completed = 0
     }
+    */
 
-    if (completed === true){
-        return(
-            <>
-                <h1>you done</h1>
-            </>
-        )
-    } else {
-        */
         return(
             <>
                 <h2>Errors: {errors}</h2>
@@ -163,6 +149,7 @@ const GamePlay = () => {
                 </div>
             </>
         )
+
     }
 
 
