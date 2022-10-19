@@ -56,7 +56,14 @@ const GamePlay = () => {
         for (let c=0; c<9; c++){
             grid[r].push(
                 <div
-                    className={(r===2 || r===5) ? 'horizontal-line': 'tile' && (c===2 || c===5) ? 'vertical-line': 'tile'}
+                    className={
+                        (r===2 && c===2) ? 'h-v-line' : 'tile'
+                        &&(r===2 && c===5) ? 'h-v-line' : 'tile'
+                        &&(r===5 && c===2) ? 'h-v-line' : 'tile'
+                        &&(r===5 && c===5) ? 'h-v-line' : 'tile'
+                        &&(r===2 || r===5) ? 'horizontal-line': 'tile' 
+                        && (c===2 || c===5) ? 'vertical-line': 'tile'
+                    }
                     key={`${r} ${c}`}
                     id={`${r}${c}`}
                     value={startBoard[r][c]}
@@ -67,9 +74,6 @@ const GamePlay = () => {
             )
         }
     }
-    
-    console.log('start', startBoard)
-    console.log('end', solutionBoard)
 
     if (JSON.stringify(startBoard) === JSON.stringify(solutionBoard)){
         return (
