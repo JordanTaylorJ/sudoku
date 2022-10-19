@@ -1,6 +1,6 @@
 import React from 'react';
 
-const GameGenerator = () => {
+const PuzzleGenerator = () => {
 
     const startingBoard = [
         [0,0,0,0,0,0,0,0,0],
@@ -89,4 +89,4 @@ const GameGenerator = () => {
     )
 }
 
-export default GameGenerator;
+export default PuzzleGenerator;

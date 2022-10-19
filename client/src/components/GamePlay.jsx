@@ -15,22 +15,8 @@ const GamePlay = () => {
         [6,7,5,8,3,2,9,4,1],
         [8,0,2,9,4,5,7,6,0]
     ]);
-    //const [solutionBoard, setSolutionBoard] = useState(null);
-    /*
-    const startBoard = [
-        [0,8,7,4,9,1,6,2,5],
-        [2,4,1,5,6,8,0,7,9],
-        [5,6,9,3,2,7,4,1,8],
-        [7,5,8,6,1,9,2,3,4],
-        [1,2,3,7,8,4,5,9,6],
-        [4,9,6,2,5,3,1,8,7],
-        [9,3,4,0,7,6,8,5,2],
-        [6,7,5,8,3,2,9,4,1],
-        [8,0,2,9,4,5,7,6,0]
-    ]
-    */
-
-    const solutionBoard = [
+    
+    const [solutionBoard, setSolutionBoard] = useState([
         [3,8,7,4,9,1,6,2,5],
         [2,4,1,5,6,8,3,7,9],
         [5,6,9,3,2,7,4,1,8],
@@ -40,8 +26,8 @@ const GamePlay = () => {
         [9,3,4,1,7,6,8,5,2],
         [6,7,5,8,3,2,9,4,1],
         [8,1,2,9,4,5,7,6,3]
-    ]
-    
+    ]);
+
     const digits = ['1','2','3','4','5','6','7','8','9'];
 
     function selectDigit(e) {
@@ -85,8 +71,7 @@ const GamePlay = () => {
     console.log('start', startBoard)
     console.log('end', solutionBoard)
 
- 
-    if (startBoard === solutionBoard){
+    if (JSON.stringify(startBoard) === JSON.stringify(solutionBoard)){
         return (
             <h1>DONE! :D </h1>
         )
