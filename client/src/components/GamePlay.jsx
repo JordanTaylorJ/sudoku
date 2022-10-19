@@ -64,21 +64,16 @@ const GamePlay = () => {
         }
     }
     
-    //the OG   this works ! 
     let grid = []
     for (let r=0; r<9; r++){
         grid.push([])
         for (let c=0; c<9; c++){
-            let num = 0
-            if (startBoard[r][c] !== 0){
-                num = startBoard[r][c]
-            }
             grid[r].push(
                 <div
                     className={(r===2 || r===5) ? 'horizontal-line': 'tile' && (c===2 || c===5) ? 'vertical-line': 'tile'}
                     key={`${r} ${c}`}
                     id={`${r}${c}`}
-                    value={num}
+                    value={startBoard[r][c]}
                     onClick={(e) => selectTile(e)}
                 > 
                 {startBoard[r][c] !== 0 ? startBoard[r][c] : null}
