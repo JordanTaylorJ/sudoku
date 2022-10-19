@@ -1,8 +1,13 @@
-import React from 'react';
+import React, {useState} from 'react';
 
 const PuzzleGenerator = () => {
 
-    const startingBoard = [
+    const [newPuzzle, setNewPuzzle] = useState({
+        start: [],
+        solution: []
+    });
+
+    const emptyBoard = [
         [0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0],
         [0,0,0,0,0,0,0,0,0],
@@ -14,10 +19,10 @@ const PuzzleGenerator = () => {
         [0,0,0,0,0,0,0,0,0]
     ];
 
+    //shuffle this before using so it's randommm ! :)
     const numArray = [1,2,3,4,5,6,7,8,9];
 
     //Check if location is safe to place num by row, column, and box
-
     const rowSafe = (puzzleArr, emptyCell, num) => {
         return puzzleArr[ emptyCell.rowIndex].indexOf(num) === -1
     }
@@ -55,7 +60,6 @@ const PuzzleGenerator = () => {
             if (emptyCell.colIndex !== "") return
             let firstZero = row.find(col => col === 0)
             if (firstZero === undefined) return 
-             
             emptyCell.rowIndex = rowIndex
             emptyCell.colIndex = row.indexOf(firstZero)
         })
@@ -63,29 +67,37 @@ const PuzzleGenerator = () => {
         return false;
     }
 
-    const fillPuzzle = startingBoard => {
-        const emptyCell = NextEmptyCell(startingBoard)
-        if (!emptyCell) return startingBoard 
+    const fillPuzzle = emptyBoard => {
+        const emptyCell = NextEmptyCell(emptyBoard)
+        if (!emptyCell) return emptyBoard 
 
         for (let num of numArray){
             
-            if (safeToPlace(startingBoard, emptyCell, num)){
-                startingBoard[emptyCell.rowIndex][emptyCell.colIndex] = num
-                if (fillPuzzle(startingBoard)) return startingBoard 
-                startingBoard[emptyCell.rowIndex][emptyCell.colIndex] = 0
+            if (safeToPlace(emptyBoard, emptyCell, num)){
+                emptyBoard[emptyCell.rowIndex][emptyCell.colIndex] = num
+                if (fillPuzzle(emptyBoard)) return emptyBoard 
+                emptyBoard[emptyCell.rowIndex][emptyCell.colIndex] = 0
             }
         }
         return false
     }
+    
+    console.log("board", emptyBoard);
+    console.log("newPuzzle", newPuzzle);
 
-    console.log(startingBoard)
-    console.log(fillPuzzle(startingBoard))
+    const handleClick = () => {
+        setNewPuzzle({
+            start: [],
+            solution: emptyBoard
+        })
+    }
 
     return(
         <>
-            <p>a game maybe   or something</p>
-            <h2>{fillPuzzle(startingBoard)}</h2>
-        </> 
+            <h1>So I think this entire one button creates a new start AND solution board AND sends it to the database? damn. powerful button </h1>
+            <p>{fillPuzzle(emptyBoard)}</p>
+            <button onClick={handleClick}>how about this though</button>
+        </>
     )
 }
 
