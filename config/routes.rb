@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :games, only: [:index]
-  resources :users, only: [:show, :create]
+  resources :users, only: [:show, :create, :destory]
   
   post '/signup', to: 'users#create'
   get '/auth', to: "users#show"

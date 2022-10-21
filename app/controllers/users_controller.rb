@@ -16,6 +16,16 @@ class UsersController < ApplicationController
         end 
     end
 
+    def destroy
+        user = User.find_by(username:params[:username])
+        if user&.authenticate(params[:password])
+            user.destroy
+            head :no_content
+        else
+            render json: {error: "Invalid password"}, status: :unauthorized
+        end
+    end
+
     private
 
     def user_params

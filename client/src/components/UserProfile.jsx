@@ -15,11 +15,12 @@ const UserProfile = ({user, setUser}) => {
             <>
                 <br/>
                 <h1>Profile</h1>
-                <ul>{user.username}</ul>
-                <Avatar align='center' sx={{ bgcolor: 'blue' }} >H</Avatar>
+                <ul>Username: {user.username}</ul>
                 <Button 
                     component={Link} to='/edituser' 
                 >Change Password</Button>
+                <br/>
+                <Button>Delete Account</Button>
 
             </>
 
