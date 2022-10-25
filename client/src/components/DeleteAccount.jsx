@@ -1,24 +1,25 @@
 import React, {useState} from 'react';
 
-const DeleteAccount = ({setUser}) => {
+const DeleteAccount = ({user, setUser}) => {
 
     const [password, setPassword] = useState('');
-    const [errors, setErrors] = useState(null);
+    const [errors, setErrors] = useState([]);
 
     const handleDeleteUser = (e) => {
         e.preventDefault()
-        fetch("/destroy", {
+        fetch("/users/destroy", {
             method: 'DELETE',
             headers: {
                 "Content-Type" : "application/json"
             },
             body: JSON.stringify({ 
-                password 
+                username: user.username,
+                password: password
             }),
         })
         .then((r) => {
             if (r.ok){
-                r.json().then((r) => setUser(r))
+                setUser('')
                 setErrors([])
             } else {
                 r.json().then((r) => setErrors(r.error))
@@ -45,6 +46,7 @@ const DeleteAccount = ({setUser}) => {
             <br/>
             <input type='submit' value='Delete Account' onClick={handleDeleteUser} />
         </form>
+        <ul> {errors}</ul>
         </>
     )
 }

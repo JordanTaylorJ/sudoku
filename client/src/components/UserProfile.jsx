@@ -3,9 +3,9 @@ import Login from './Login';
 import Button from '@mui/material/Button';
 import {Link} from 'react-router-dom';
 
-const UserProfile = ({user, setUser}) => {
+const UserProfile = ({user}) => {
 
-
+    
 
     if (!user) {
         return(

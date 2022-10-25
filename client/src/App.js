@@ -48,7 +48,7 @@ function App() {
           <Route path='/userprofile' element={<UserProfile user={user} setUser={setUser} />} />
           <Route path='/scoreboard' element={<ScoreBoard/>} />
           <Route path='/edituser' element={<EditUserInfo/>} />
-          <Route path='/deleteaccount' element={<DeleteAccount setUser={setUser}/>} />
+          <Route path='/deleteaccount' element={<DeleteAccount user={user} setUser={setUser}/>} />
           <Route path='/generategames' element={<PuzzleGenerator/>} />
         </Routes>
       </Router>
