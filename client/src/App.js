@@ -9,6 +9,7 @@ import GamePlay from './components/GamePlay';
 import UserProfile from './components/UserProfile';
 import ScoreBoard from './components/ScoreBoard';
 import EditUserInfo from './components/EditUserInfo';
+import DeleteAccount from './components/DeleteAccount';
 import PuzzleGenerator from './components/PuzzleGenerator';
 
 
@@ -47,6 +48,7 @@ function App() {
           <Route path='/userprofile' element={<UserProfile user={user} setUser={setUser} />} />
           <Route path='/scoreboard' element={<ScoreBoard/>} />
           <Route path='/edituser' element={<EditUserInfo/>} />
+          <Route path='/deleteaccount' element={<DeleteAccount setUser={setUser}/>} />
           <Route path='/generategames' element={<PuzzleGenerator/>} />
         </Routes>
       </Router>

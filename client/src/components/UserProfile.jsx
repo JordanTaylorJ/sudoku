@@ -1,10 +1,11 @@
 import React from "react";
 import Login from './Login';
-import { Avatar } from "@mui/material";
 import Button from '@mui/material/Button';
 import {Link} from 'react-router-dom';
 
 const UserProfile = ({user, setUser}) => {
+
+
 
     if (!user) {
         return(
@@ -16,12 +17,9 @@ const UserProfile = ({user, setUser}) => {
                 <br/>
                 <h1>Profile</h1>
                 <ul>Username: {user.username}</ul>
-                <Button 
-                    component={Link} to='/edituser' 
-                >Change Password</Button>
+                <Button component={Link} to='/edituser'>Change Password</Button>
                 <br/>
-                <Button>Delete Account</Button>
-
+                <Button component={Link} to='/deleteaccount'>Delete Account</Button>
             </>
 
         )
