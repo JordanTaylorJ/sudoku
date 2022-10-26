@@ -8,18 +8,39 @@ const EditUserInfo = ({user}) => {
         confirmation_password: ""
     })
 */
+    const handleChange = () => {
+
+    }
+
     return (
+        <>
+        <br/>
         <form>
             <label> Old Password: 
-                <input type='text' name='username' placeholder="enter new username..." />
+                <input 
+                    type='text' 
+                    name='old password' 
+                    placeholder="enter old password..." 
+                />
             </label>
+            <br/>
             <label> New Password: 
-                <input type='text' name='username' placeholder="enter new username..." />
+                <input 
+                    type='text' 
+                    name='new password' 
+                    placeholder="enter new password..." 
+                />
             </label>
-            <label> Password Confirmation:  
-                <input type='text' name='username' placeholder="enter new username..." />
+            <br/>
+            <label> New Password Confirmation:  
+                <input 
+                    type='text' 
+                    name='confirmation password' 
+                    placeholder="enter new password..." 
+                />
             </label>
         </form>
+        </>
     )
 }
 export default EditUserInfo; 

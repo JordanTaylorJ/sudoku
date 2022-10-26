@@ -63,7 +63,6 @@ const Navbar = ({user, setUser}) => {
                 sx={{ my: 2, color: 'white', display: 'block' }}
             > Logout
             </Button>
-
             ) : (
               <Button
               component={Link} to='/login'
@@ -71,13 +70,14 @@ const Navbar = ({user, setUser}) => {
           > Login
           </Button>
             )}
-
+            {!user ? (
             <Button
                 component={Link} to='/signup'
                 sx={{ my: 2, color: 'white', display: 'block' }}
             >
             Signup
             </Button>
+            ) : <></>}
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip >
               <IconButton sx={{ p: 0 }}>
