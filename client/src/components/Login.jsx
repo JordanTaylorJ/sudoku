@@ -1,8 +1,4 @@
 import React, {useState} from 'react';
-//import Box from '@mui/material/Box';
-//import TextField from '@mui/material/TextField';
-//import Signup from './Signup';
-//import {Link} from 'react-router-dom';
 
 const Login = ({setUser}) => {
     
@@ -36,10 +32,7 @@ const Login = ({setUser}) => {
         <div>
             <br/>
             <form
-            //component="form"
-            //sx={{'& > :not(style)': { m: 10, width: '25ch' },}}
             onSubmit={(e) => handleSubmit(e, username, password)}
-            //autoComplete="off"
             >
                 <label>
                     Username: 

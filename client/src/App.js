@@ -27,6 +27,9 @@ function App() {
     })
   }, []);
 
+
+  console.log("user from app", user);
+
   /*
   useEffect(() => {
     fetch('/games')
