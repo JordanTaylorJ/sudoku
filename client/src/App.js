@@ -16,7 +16,7 @@ import PuzzleGenerator from './components/PuzzleGenerator';
 function App() {
 
   const [user, setUser] = useState('');
-  //const [puzzles, setPuzzles] = useState();
+  const [puzzles, setPuzzles] = useState({});
   
   useEffect(() => { 
     fetch('/auth')
@@ -26,18 +26,19 @@ function App() {
       }
     })
   }, []);
+ 
+    
+    
+    useEffect(() => {
+        fetch('/games')
+        .then(r => r.json())
+        //.then(r => console.log("this is the start", r))
+        .then(r => setPuzzles(r))
+    }, [])
 
+    console.log("This should be the games", puzzles)
+  
 
-  console.log("user from app", user);
-
-  /*
-  useEffect(() => {
-    fetch('/games')
-    .then(r => r.json())
-    //.then(r => console.log("this is the start", r))
-    .then(r => setPuzzles(r))
-  }, [])
-  */
   
   return (
     <div className="App">
