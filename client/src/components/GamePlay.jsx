@@ -30,6 +30,13 @@ const GamePlay = () => {
 
     const digits = ['1','2','3','4','5','6','7','8','9'];
 
+    //send the score once the game is over :)
+    /*
+    if (JSON.stringify(startBoard) === JSON.stringify(solutionBoard)){
+        fetch('/')
+    }
+    */
+
     /*
     const [puzzles, setPuzzles] = useState();
     useEffect(() => {

@@ -17,14 +17,13 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_222823) do
   create_table "games", force: :cascade do |t|
     t.string "start"
     t.string "solution"
-    t.string "difficulty"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "scores", force: :cascade do |t|
-    t.string "time"
-    t.integer "errors"
+    t.boolean "complete"
+    t.integer "mistakes"
     t.integer "user_id"
     t.integer "game_id"
     t.datetime "created_at", null: false
