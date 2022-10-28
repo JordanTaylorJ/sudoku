@@ -27,8 +27,6 @@ const DeleteAccount = ({user, setUser}) => {
         })
     }
 
-    console.log("this password", password)
-
     return(
         <>
         <br/>

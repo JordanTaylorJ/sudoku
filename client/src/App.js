@@ -29,14 +29,13 @@ function App() {
  
     
     
-    useEffect(() => {
-        fetch('/games')
-        .then(r => r.json())
-        //.then(r => console.log("this is the start", r))
-        .then(r => setPuzzles(r))
-    }, [])
+  useEffect(() => {
+      fetch('/games')
+      .then(r => r.json())
+      .then(r => setPuzzles(r))
+  }, [])
 
-    console.log("This should be the games", puzzles)
+  console.log("This should be the games with users and scores associated", puzzles)
   
 
   
