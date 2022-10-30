@@ -49,7 +49,7 @@ function App() {
           <Route path='/signup' element={<Signup setUser={setUser} />} />
           <Route path='/newgame' element={<GamePlay />} />
           <Route path='/userprofile' element={<UserProfile user={user} setUser={setUser} />} />
-          <Route path='/scoreboard' element={<ScoreBoard/>} />
+          <Route path='/scoreboard' element={<ScoreBoard puzzles={puzzles}/>} />
           <Route path='/edituser' element={<EditUserInfo/>} />
           <Route path='/deleteaccount' element={<DeleteAccount user={user} setUser={setUser}/>} />
           <Route path='/generategames' element={<PuzzleGenerator/>} />
