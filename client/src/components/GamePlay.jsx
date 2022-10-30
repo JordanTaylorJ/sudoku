@@ -37,17 +37,7 @@ const GamePlay = () => {
     }
     */
 
-    /*
-    const [puzzles, setPuzzles] = useState();
-    useEffect(() => {
-        fetch('/games')
-        .then(r => r.json())
-        //.then(r => console.log("this is the start", r))
-        .then(r => setPuzzles(r))
-    }, [])
-    
-    console.log("This should be the games", puzzles)
-    */
+
 
     function selectDigit(e) {
         setDigitSelect(e.target.id)

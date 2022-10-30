@@ -17,8 +17,8 @@ const ScoreBoard = ({puzzles}) => {
     return(
         <>
         <h1>High Scores!</h1>
-        <p className="column">{users}</p>
-        <p className="row">{scores}</p>
+        <p>{users}</p>
+        <p>{scores}</p>
         </>
     )
 }

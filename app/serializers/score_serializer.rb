@@ -1,5 +1,6 @@
 class ScoreSerializer < ActiveModel::Serializer
-  attributes :mistakes, :complete, :user_id
+  attributes :mistakes, :game_id
+
   belongs_to :user
-  belongs_to :game 
+  
 end
