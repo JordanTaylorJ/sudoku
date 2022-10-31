@@ -26,8 +26,6 @@ function App() {
       }
     })
   }, []);
- 
-    
     
   useEffect(() => {
       fetch('/games')
@@ -37,7 +35,6 @@ function App() {
 
   console.log("This should be the games with users and scores associated", puzzles)
   
-
   
   return (
     <div className="App">
@@ -47,7 +44,7 @@ function App() {
           <Route path='/' element={<Home user={user} />}/>
           <Route path='/login' element={<Login setUser={setUser} />} />
           <Route path='/signup' element={<Signup setUser={setUser} />} />
-          <Route path='/newgame' element={<GamePlay />} />
+          <Route path='/newgame' element={<GamePlay user={user} puzzles={puzzles}/>} />
           <Route path='/userprofile' element={<UserProfile user={user} setUser={setUser} />} />
           <Route path='/scoreboard' element={<ScoreBoard puzzles={puzzles}/>} />
           <Route path='/edituser' element={<EditUserInfo user={user}/>} />

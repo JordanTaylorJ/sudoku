@@ -2,22 +2,11 @@ import React from "react";
 
 const ScoreBoard = ({puzzles}) => {
 
-    //console.log(puzzles[1].scores)
-    //console.log(puzzles[1].users)
+    const scores = puzzles.map(puzzle => puzzle.scores.map(score => <p>{`${score.user.username} ${score.mistakes}`}</p>))
 
-    
-
-    //let Pscores = puzzles.map(puzzle => puzzle.users.scores.sort())
-
-    const users = puzzles.map(puzzle => puzzle.users.map(user => user.username))
-
-    const scores = puzzles.map(puzzle => puzzle.scores.map(score => score.mistakes))
-
-    console.log("these guys", users, scores)
     return(
         <>
         <h1>High Scores!</h1>
-        <p>{users}</p>
         <p>{scores}</p>
         </>
     )
@@ -48,3 +37,20 @@ export default ScoreBoard;
         }
         )}
 */
+
+
+
+
+/*
+        {puzzles.map(puzzle => {
+                <>
+                <p>{puzzle.id}</p>
+                {puzzle.scores.map(score => {
+                    <>
+                        <p>{score.mistakes}</p>
+                        <p>{score.user.username}</p>
+                    </>
+                })}
+                </>
+            })}
+            */

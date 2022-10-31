@@ -1,6 +1,6 @@
 import React, {useState } from 'react';
 
-const GamePlay = () => {
+const GamePlay = ({puzzles, user}) => {
 
     const [digitSelect, setDigitSelect] = useState(0);
     const [errors, setErrors] = useState(0);
@@ -15,7 +15,6 @@ const GamePlay = () => {
         [6,7,5,8,3,2,9,4,1],
         [8,0,2,9,4,5,7,6,0]
     ]);
-    
     const [solutionBoard, setSolutionBoard] = useState([
         [3,8,7,4,9,1,6,2,5],
         [2,4,1,5,6,8,3,7,9],
@@ -31,13 +30,22 @@ const GamePlay = () => {
     const digits = ['1','2','3','4','5','6','7','8','9'];
 
     //send the score once the game is over :)
-    /*
+    
     if (JSON.stringify(startBoard) === JSON.stringify(solutionBoard)){
-        fetch('/')
+        fetch('/scores/create', {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({
+                game_id: 1,
+                user_id: user.id,
+                mistakes: errors
+            })
+        })
+        .then(r => r.json())
+        .then(r => console.log(r))
     }
-    */
-
-
 
     function selectDigit(e) {
         setDigitSelect(e.target.id)
