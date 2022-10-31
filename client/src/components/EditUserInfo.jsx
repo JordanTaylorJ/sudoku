@@ -26,7 +26,6 @@ const EditUserInfo = ({user}) => {
             },
             body: JSON.stringify(updateUser)
         })
-        .then(r => r.json())
         .then((r) => {
             if (r.ok){
                 setErrors([])

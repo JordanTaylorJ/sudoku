@@ -82,9 +82,28 @@ const PuzzleGenerator = () => {
 
     const handleClick = () => {
         setNewPuzzle({
-            start: [],
+            start: [
+                [0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0],
+                [0,0,0,0,0,0,0,0,0]
+            ],
             solution: emptyBoard
         })
+        fetch("/games/create", {
+            method: "POST",
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({newPuzzle})
+        })
+        .then(r => r.json())
+        .then(r => console.log(r))
     }
     
 

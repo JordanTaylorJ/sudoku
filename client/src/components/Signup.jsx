@@ -33,7 +33,7 @@ const Signup = ({setUser}) => {
         <div>
             <br/>
             <form
-            onSubmit={(e) => handleSubmit(e, username, password)}
+            onSubmit={(e) => handleSubmit(e)}
             autoComplete="off"
             >
                 <label>
