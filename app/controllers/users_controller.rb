@@ -16,6 +16,16 @@ class UsersController < ApplicationController
         end 
     end
 
+    def update 
+        user = User.find_by(username:params[:username])
+        if user&.authenticate(params[:password])
+            user.update(password:params[:new_password])
+            render json: user, status: :accepted
+        else
+            render json: {error: "Invalid password"}, status: :not_found
+        end
+    end
+
     def destroy
         user = User.find_by(username:params[:username])
         if user&.authenticate(params[:password])
@@ -29,7 +39,7 @@ class UsersController < ApplicationController
     private
 
     def user_params
-        params.permit(:username, :password, :password_confirmation)
+        params.permit(:username, :password, :new_password)
     end
 
 end
