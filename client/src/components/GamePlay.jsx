@@ -32,13 +32,13 @@ const GamePlay = ({puzzles, user}) => {
     //send the score once the game is over :)
     
     if (JSON.stringify(startBoard) === JSON.stringify(solutionBoard)){
-        fetch('/scores/create', {
+        fetch('/scores', {
             method: "POST",
             headers: {
                 'Content-Type': 'application/json'
             },
             body: JSON.stringify({
-                game_id: 1,
+                game_id: 22,
                 user_id: user.id,
                 mistakes: errors
             })

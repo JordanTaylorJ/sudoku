@@ -33,6 +33,7 @@ function App() {
       .then(r => setPuzzles(r))
   }, [])
 
+  console.log("USER", user)
   console.log("This should be the games with users and scores associated", puzzles)
   
   

@@ -22,7 +22,6 @@ ActiveRecord::Schema[7.0].define(version: 2022_10_05_222823) do
   end
 
   create_table "scores", force: :cascade do |t|
-    t.boolean "complete"
     t.integer "mistakes"
     t.integer "user_id"
     t.integer "game_id"
