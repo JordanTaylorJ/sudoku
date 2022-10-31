@@ -37,7 +37,6 @@ const PuzzleGenerator = () => {
         let colBoxStart = emptyCell.colIndex - (emptyCell.colIndex % 3)
         //if the number already exists in the box, not safe to place
         let safe = true
-        
         for (let boxRow of [0,1,2]){
             for (let boxCol of [0,1,2]){
                 if (puzzleArr[rowBoxStart + boxRow][colBoxStart + boxCol] === num){
@@ -70,9 +69,7 @@ const PuzzleGenerator = () => {
     const fillPuzzle = emptyBoard => {
         const emptyCell = NextEmptyCell(emptyBoard)
         if (!emptyCell) return emptyBoard 
-
         for (let num of numArray){
-            
             if (safeToPlace(emptyBoard, emptyCell, num)){
                 emptyBoard[emptyCell.rowIndex][emptyCell.colIndex] = num
                 if (fillPuzzle(emptyBoard)) return emptyBoard 
@@ -82,8 +79,6 @@ const PuzzleGenerator = () => {
         return false
     }
     
-    console.log("board", emptyBoard);
-    console.log("newPuzzle", newPuzzle);
 
     const handleClick = () => {
         setNewPuzzle({
@@ -91,14 +86,64 @@ const PuzzleGenerator = () => {
             solution: emptyBoard
         })
     }
+    
 
     return(
         <>
-            <h1>So I think this entire one button creates a new start AND solution board AND sends it to the database? damn. powerful button </h1>
+            <h1>MEEP </h1>
             <p>{fillPuzzle(emptyBoard)}</p>
+            
+            <br/>
             <button onClick={handleClick}>how about this though</button>
         </>
     )
 }
 
 export default PuzzleGenerator;
+
+
+
+
+/*
+    let grid = []
+    function createDisplay() {
+        let solution = newPuzzle.solution
+        for (let r=0; r<9; r++){
+            grid.push([])
+            for (let c=0; c<9; c++){
+                grid[r].push(
+                    <div
+                        className={
+                            (r===2 && c===2) ? 'h-v-line' : 'tile'
+                            &&(r===2 && c===5) ? 'h-v-line' : 'tile'
+                            &&(r===5 && c===2) ? 'h-v-line' : 'tile'
+                            &&(r===5 && c===5) ? 'h-v-line' : 'tile'
+                            &&(r===2 || r===5) ? 'horizontal-line': 'tile' 
+                            && (c===2 || c===5) ? 'vertical-line': 'tile'
+                        }
+                        key={`${r} ${c}`}
+                        id={`${r}${c}`}
+                        //value={solution[r][c]}
+                    > 
+                    0
+                    </div>
+                )
+            }
+        }
+    }
+    
+   console.log("solution?", newPuzzle.solution)
+
+
+    //console.log("board", emptyBoard);
+    //console.log("newPuzzle", newPuzzle);
+
+
+{grid ? 
+                <div className='boardStyle'>
+                    {grid}
+                </div>
+            : <></>
+            }
+
+*/
